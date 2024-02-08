@@ -2,16 +2,18 @@
  * @param {Function[]} functions
  * @return {Function}
  */
-var compose = function(functions) {
-    if(functions.length===0){
-        return function(x){return x}
+var compose = function (functions) {
+    if (functions.length === 0) {
+        return function (x) { return x }
     }
-    return functions.reduceRight(function(prev,next){
-        return function(x){
-
-        return next(prev(x))
+    return function (x) {
+        let a = x
+        for (let i = functions.length - 1; i >= 0; i--) {
+            a = functions[i](a)
         }
-    })
+        return a
+    }
+
 };
 
 /**
