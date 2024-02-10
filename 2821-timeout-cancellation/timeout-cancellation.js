@@ -4,12 +4,13 @@
  * @param {number} t
  * @return {Function}
  */
-var cancellable = function (fn, args, t) {
-
-    const a = setTimeout(() => {
+var cancellable = function(fn, args, t) {
+    const a = setTimeout(()=>{
         fn(...args)
-    }, t)
-    return () => {clearTimeout(a)}
+    },t)
+    return function(){
+        clearTimeout(a)
+    }
 };
 
 /**
