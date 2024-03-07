@@ -13,7 +13,7 @@
 function middleNode(head: ListNode | null): ListNode | null {
  let fast =head
  let slow = head;
-    while (fast && fast.next) {
+    while (fast?.next) {
         fast = fast.next.next;
         slow = slow.next;
     }
