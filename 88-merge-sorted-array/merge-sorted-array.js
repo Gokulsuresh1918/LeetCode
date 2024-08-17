@@ -20,9 +20,9 @@ var merge = function (nums1, m, nums2, n) {
         }
         tot--
     }
-    while (sec >= 0) {
+  while (sec >= 0) {
         nums1[tot] = nums2[sec]
-        sec--
-        tot--
+       sec--
+       tot--
     }
 };
