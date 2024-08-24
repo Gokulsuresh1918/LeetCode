@@ -3,13 +3,16 @@
  * @return {number}
  */
 var majorityElement = function(nums) {
-    let candidate ;
-    let count =0;
-    for(const num of nums){
-         if(count===0){
-             candidate= num
-         }
-         count +=(num===candidate)?1:-1
+    
+    let hash={}
+    let currenthigh=0
+    let count=0
+    for(let n of nums){
+        hash[n]=1+(hash[n]||0)
+        if(hash[n]>count){
+currenthigh=n
+count=hash[n]
+        }
     }
-    return candidate
+    return currenthigh
 };
